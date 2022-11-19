@@ -9,16 +9,9 @@ app.get('/api/terms', (req, res) => res.json(termData));
 
 app.get('/api/terms/:term', (req, res) => {
 
-  const requestedTerm = req.params.term.toLowerCase();
+  })
 
-  for (let i = 0; i < termData.length; i++) {
-    if (requestedTerm === termData[i].term.toLowerCase()) {
-      return res.json(termData[i]);
-    }
-  }
 
-  return res.json('No match found');
-});
 
 app.get('*', (req, res) =>
   res.send(
