@@ -1,23 +1,23 @@
 const express = require('express');
-const termData = require('./mod11chall/Develop/db/db.json');
+const termData = require('./Develop/db/db.json');
+const fs = require('fs');
+const path = require('path');
+const PORT = 5000;
+const api = require('./noteroutes')
 
-const PORT = 3001;
 
 const app = express();
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static('Develop/public'));
 
-app.get('/api/terms', (req, res) => res.json(termData));
+app.get('/notes',  (req, res) => {
+  res.sendFile(path.join(__dirname, '../mod11chall/Develop/public/notes.html'));
 
-app.get('/api/terms/:term', (req, res) => {
-
-  })
-
-
-
-app.get('*', (req, res) =>
-  res.send(
-    `Make a GET request using Insomnia to <a href="http://localhost:${PORT}/api/terms">http://localhost:${PORT}/api/terms</a>`
-  )
-);
+});
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
+});
 
 app.listen(PORT, () =>
   console.info(`Example app listening at http://localhost:${PORT} 🚀`)
