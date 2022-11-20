@@ -10,12 +10,12 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('Develop/public'));
+app.use('/',api)
 
-app.get('/notes',  (req, res) => {
-  res.sendFile(path.join(__dirname, '../mod11chall/Develop/public/notes.html'));
 
-});
-app.get('/', (req, res) => {
+
+
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
