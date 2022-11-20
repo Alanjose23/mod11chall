@@ -1,5 +1,5 @@
 const express = require('express');
-const termData = require('./Develop/db/db.json');
+
 const fs = require('fs');
 const path = require('path');
 const PORT = 5000;
