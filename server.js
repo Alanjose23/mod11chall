@@ -3,7 +3,7 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const PORT = 5000;
-const api = require('./noteroutes')
+const api = require('./noteroutes');
 
 
 const app = express();
